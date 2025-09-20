@@ -39,6 +39,25 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // --- This is the new, correct order ---
+
+  // 1. Serve static assets first, but only in production.
+  //    This must happen BEFORE setting up the routes.
+  const buildPath = path.join(__dirname, "public");
+  if (app.get("env") !== "development" && fs.existsSync(buildPath)) {
+    app.use(express.static(buildPath));
+    app.get("*", (_req, res) => {
+      res.sendFile(path.join(buildPath, "index.html"));
+    });
+  } else if (app.get("env") === "development") {
+    // 2. Setup Vite in development.
+    await setupVite(app, server);
+  } else {
+    // 3. Fallback for other non-development environments.
+    serveStatic(app);
+  }
+
+  // 4. Set up the API routes after serving static files.
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -49,26 +68,7 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // Check if the public directory exists before serving it
-  const buildPath = path.join(__dirname, "public");
-  if (app.get("env") !== "development" && fs.existsSync(buildPath)) {
-    app.use(express.static(buildPath));
-    app.get("*", (_req, res) => {
-      res.sendFile(path.join(buildPath, "index.html"));
-    });
-  } else if (app.get("env") === "development") {
-    // importantly only setup vite in development and after
-    // setting up all the other routes so the catch-all route
-    // doesn't interfere with the other routes
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
-  }
-
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
+  // 5. Start the server.
   const port = parseInt(process.env.PORT || "5000", 10);
   server.listen(
     {
