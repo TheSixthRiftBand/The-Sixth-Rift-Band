@@ -30,6 +30,8 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Add this crucial line to fix the blank page issue
+    base: '/',
   },
   server: {
     fs: {
