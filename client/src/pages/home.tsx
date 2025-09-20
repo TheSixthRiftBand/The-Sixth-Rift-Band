@@ -4,7 +4,7 @@ import BandMembers from "@/components/band-members";
 import MusicPlayer from "@/components/music-player";
 import AboutSection from "@/components/about-section";
 import ContactSection from "@/components/contact-section";
-import logoImage from "@thesixthrift_1758308023097.jpg";
+import logoImage from "@assets/thesixthrift_1758308023097.jpg";
 
 export default function Home() {
   return (
