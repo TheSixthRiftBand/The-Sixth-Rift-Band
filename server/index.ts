@@ -55,17 +55,23 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // 2. Now that the 'server' variable is defined, you can pass it to the functions.
+  const buildPath = path.join(__dirname, "public");
+
+  // This check is the key to preventing the crash.
+  // It ensures setupVite is only called in development.
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
-    // 3. This block will run on Vercel.
-    const buildPath = path.join(__dirname, "public");
-    app.use(express.static(buildPath));
-
-    app.get("*", (_req, res) => {
-      res.sendFile(path.join(buildPath, "index.html"));
-    });
+    // This block runs in production (Vercel).
+    // It serves the static files and handles client-side routing.
+    if (fs.existsSync(buildPath)) {
+      app.use(express.static(buildPath));
+      app.get("*", (_req, res) => {
+        res.sendFile(path.join(buildPath, "index.html"));
+      });
+    } else {
+      serveStatic(app);
+    }
   }
 
   const port = parseInt(process.env.PORT || '5000', 10);
