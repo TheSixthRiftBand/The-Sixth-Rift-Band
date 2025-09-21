@@ -14,6 +14,7 @@ app.use(express.json());
 registerRoutes(app);
 
 // Serve your built client-side application
+// The path must be relative to the serverless function's location.
 const buildPath = path.join(__dirname, "../dist/public");
 app.use(express.static(buildPath));
 
