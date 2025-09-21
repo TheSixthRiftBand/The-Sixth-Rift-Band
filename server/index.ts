@@ -3,6 +3,11 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from 'url';
+
+// Define the equivalent of __dirname for ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(express.json());
@@ -39,25 +44,7 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  // --- This is the new, correct order ---
-
-  // 1. Serve static assets first, but only in production.
-  //    This must happen BEFORE setting up the routes.
-  const buildPath = path.join(__dirname, "public");
-  if (app.get("env") !== "development" && fs.existsSync(buildPath)) {
-    app.use(express.static(buildPath));
-    app.get("*", (_req, res) => {
-      res.sendFile(path.join(buildPath, "index.html"));
-    });
-  } else if (app.get("env") === "development") {
-    // 2. Setup Vite in development.
-    await setupVite(app, server);
-  } else {
-    // 3. Fallback for other non-development environments.
-    serveStatic(app);
-  }
-
-  // 4. Set up the API routes after serving static files.
+  // 1. First, register the routes to create the server instance.
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -68,16 +55,15 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // 5. Start the server.
-  const port = parseInt(process.env.PORT || "5000", 10);
-  server.listen(
-    {
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    },
-    () => {
-      log(`serving on port ${port}`);
-    }
-  );
+  // 2. Now that the 'server' variable is defined, you can pass it to the functions.
+  if (app.get("env") === "development") {
+    await setupVite(app, server);
+  } else {
+    serveStatic(app);
+  }
+
+  const port = parseInt(process.env.PORT || '5000', 10);
+  server.listen(port, () => {
+    log(`serving on port ${port}`);
+  });
 })();
