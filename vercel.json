@@ -1,13 +1,8 @@
 {
-  "functions": {
-    "server/api/index.ts": {
-      "runtime": "@vercel/node@2.0.0"
-    }
-  },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/server/api/index.ts"
+      "source": "/(.*)",
+      "destination": "/api"
     }
   ]
 }
