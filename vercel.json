@@ -1,18 +1,14 @@
 {
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
+  "builds": [
+    {
+      "src": "server/index.ts",
+      "use": "@vercel/node"
     }
-  },
-  "functions": {
-    "server/index.ts": {
-      "runtime": "vercel-node@2.0.0"
-    }
-  },
+  ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server/index.ts"
+      "dest": "/server/index.ts"
     }
   ]
 }
