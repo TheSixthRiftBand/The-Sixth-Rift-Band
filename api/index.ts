@@ -1,5 +1,5 @@
-import { registerRoutes } from "./server/routes";
 import express, { type Request, Response, NextFunction } from "express";
+import { registerRoutes } from "../server/routes";
 import path from "path";
 import { fileURLToPath } from 'url';
 
@@ -14,7 +14,8 @@ app.use(express.json());
 registerRoutes(app);
 
 // Serve your built client-side application
-const buildPath = path.join(__dirname, "../../public");
+// CHANGE THIS LINE to point to the correct build directory
+const buildPath = path.join(__dirname, "../dist/public");
 app.use(express.static(buildPath));
 
 // Handle all other requests by serving the main HTML file
