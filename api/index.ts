@@ -14,7 +14,6 @@ app.use(express.json());
 registerRoutes(app);
 
 // Serve your built client-side application
-// CHANGE THIS LINE to point to the correct build directory
 const buildPath = path.join(__dirname, "../dist/public");
 app.use(express.static(buildPath));
 
