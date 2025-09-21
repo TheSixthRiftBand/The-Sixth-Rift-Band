@@ -1,8 +1,13 @@
 {
-  "rewrites": [
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest": "server/index.ts"
     }
   ]
 }
