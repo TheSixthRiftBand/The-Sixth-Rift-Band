@@ -43,25 +43,35 @@ app.use((req, res, next) => {
   next();
 });
 
-// Register API routes
-const server = registerRoutes(app);
+// Run this async function to start the server
+(async () => {
+  // Await the registration of routes to get the server instance
+  const server = await registerRoutes(app);
 
-// Error handling middleware
-app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-  const status = err.status || err.statusCode || 500;
-  const message = err.message || "Internal Server Error";
-  res.status(status).json({ message });
-  throw err;
-});
+  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+    const status = err.status || err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
 
-// Vercel deployment check
-if (process.env.VERCEL) {
-  // In a Vercel environment, we need to export the app directly
-  module.exports = app;
-} else {
-  // In a development environment, we listen on a port
+    res.status(status).json({ message });
+    throw err;
+  });
+
+  const buildPath = path.join(__dirname, "public");
+
+  // In production, serve the built client-side files
+  if (process.env.NODE_ENV === "production" && fs.existsSync(buildPath)) {
+    app.use(express.static(buildPath));
+    app.get("*", (_req, res) => {
+      res.sendFile(path.join(buildPath, "index.html"));
+    });
+  } else if (process.env.NODE_ENV === "development") {
+    await setupVite(app, server);
+  } else {
+    serveStatic(app);
+  }
+
   const port = parseInt(process.env.PORT || '5000', 10);
   server.listen(port, () => {
     log(`serving on port ${port}`);
   });
-}
+})();
