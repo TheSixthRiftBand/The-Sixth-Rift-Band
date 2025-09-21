@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  // 1. First, register the routes to create the server instance.
+  // 1. First, register the API routes to create the server instance.
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -59,7 +59,13 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
-    serveStatic(app);
+    // 3. This block will run on Vercel.
+    const buildPath = path.join(__dirname, "public");
+    app.use(express.static(buildPath));
+
+    app.get("*", (_req, res) => {
+      res.sendFile(path.join(buildPath, "index.html"));
+    });
   }
 
   const port = parseInt(process.env.PORT || '5000', 10);
