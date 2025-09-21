@@ -4,6 +4,11 @@
       "NODE_ENV": "production"
     }
   },
+  "functions": {
+    "server/index.ts": {
+      "runtime": "vercel-node@2.0.0"
+    }
+  },
   "routes": [
     {
       "src": "/(.*)",
