@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --background: hsl(35, 20%, 12%);
   --foreground: hsl(45, 30%, 95%);
@@ -90,17 +91,6 @@
   .music-wave {
     position: relative;
     overflow: hidden;
-  }
-  
-  .music-wave::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.3), transparent);
-    animation: wave 3s infinite linear;
   }
   
   .floating {
