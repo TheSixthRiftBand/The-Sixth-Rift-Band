@@ -31,7 +31,7 @@ const socialPlatforms = [
     icon: "fab fa-discord",
     color: "blue-500",
     description: "Join our community",
-    href: "#"
+    href: "https://discord.gg/NzdfR43h"
   }
 ];
 
