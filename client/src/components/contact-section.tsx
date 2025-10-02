@@ -17,7 +17,7 @@ const socialPlatforms = [
     icon: "fab fa-youtube",
     color: "red-500",
     description: "Watch our videos",
-    href: "#"
+    href: "https://www.youtube.com/@TheSixthRiftv2"
   },
   {
     name: "Instagram",
@@ -31,7 +31,7 @@ const socialPlatforms = [
     icon: "fab fa-discord",
     color: "blue-500",
     description: "Join our community",
-    href: "https://discord.gg/NzdfR43h"
+    href: "https://discord.gg/ts8mNdWP"
   }
 ];
 
