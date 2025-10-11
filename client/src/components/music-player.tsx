@@ -12,7 +12,7 @@ const tracks = [
     image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     duration: "3:47",
     status: "released",
-    audioUrl: null // Will be replaced with actual MP3 when available
+    audioUrl: "/The Monsoon Nights.mp3" // Will be replaced with actual MP3 when available
   }
 ];
 
