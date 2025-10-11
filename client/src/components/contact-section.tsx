@@ -24,7 +24,7 @@ const socialPlatforms = [
     icon: "fab fa-instagram",
     color: "pink-500",
     description: "Behind the scenes",
-    href: "#"
+    href: "https://www.instagram.com/the.sixthrift?igsh=cDl5dHdnYjdxOGls"
   },
   {
     name: "Discord",
