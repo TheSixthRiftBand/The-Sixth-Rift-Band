@@ -10,9 +10,9 @@ const tracks = [
     subtitle: "Our breakthrough single",
     description: "A mystical journey through rain-soaked dimensions, where ancient tabla rhythms meet cosmic synthesizers and ethereal vocals paint pictures of interdimensional storms.",
     image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    duration: "3:47",
     status: "released",
-    audioUrl: "/The Monsoon Nights.mp3" // Will be replaced with actual MP3 when available
+    // Set audioUrl to the uploaded file's URL
+    audioUrl: "/The Monsoon Nights.mp3" 
   }
 ];
 
@@ -46,7 +46,8 @@ const upcomingTracks = [
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(227); // 3:47 in seconds
+  // Set initial duration to 0, which will be updated by the audio's metadata
+  const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
@@ -54,7 +55,11 @@ export default function MusicPlayer() {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        // Start playing the audio
+        audioRef.current.play().catch(error => {
+          console.error("Error playing audio:", error);
+          // Handling potential autoplay restrictions
+        });
       }
     }
     setIsPlaying(!isPlaying);
@@ -62,6 +67,7 @@ export default function MusicPlayer() {
 
   const formatTime = (timeInSeconds: number) => {
     const minutes = Math.floor(timeInSeconds / 60);
+    // Displaying seconds (SS) as requested
     const seconds = Math.floor(timeInSeconds % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
@@ -69,8 +75,14 @@ export default function MusicPlayer() {
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
+      // Update the current time state on 'timeupdate' event
       const updateTime = () => setCurrentTime(audio.currentTime);
-      const updateDuration = () => setDuration(audio.duration);
+      // Update the duration state on 'loadedmetadata' event
+      const updateDuration = () => {
+        if (isFinite(audio.duration)) {
+             setDuration(audio.duration);
+        }
+      };
       
       audio.addEventListener('timeupdate', updateTime);
       audio.addEventListener('loadedmetadata', updateDuration);
@@ -84,6 +96,9 @@ export default function MusicPlayer() {
 
   return (
     <section id="music" className="py-20 bg-background">
+      {/* Hidden audio element with the uploaded file's source */}
+      <audio ref={audioRef} src={tracks[0].audioUrl} preload="metadata" />
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">Our Music</h2>
@@ -141,11 +156,7 @@ export default function MusicPlayer() {
                     </Button>
                   </div>
                   
-                  <div className="text-center mt-4">
-                    <p className="text-sm text-muted-foreground">
-                      Audio file will be available when provided
-                    </p>
-                  </div>
+                  {/* Removed the 'Audio file will be available...' placeholder */}
                 </CardContent>
               </Card>
             </div>
