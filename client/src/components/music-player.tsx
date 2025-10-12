@@ -15,7 +15,7 @@ const tracks = [
     duration: "3:13",
     status: "released",
     // ✅ Updated to point to uploaded MP3
-    audioUrl: "/The Monsoon Nights.mp3",
+    audioUrl: "/clients/The Monsoon Nights.mp3",
   },
 ];
 
