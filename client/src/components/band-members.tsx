@@ -1,4 +1,4 @@
-import { Guitar, Mic, MicVocal, Piano, Music, Drums } from "lucide-react";
+import { Guitar, Mic, MicVocal, Piano, Music, Drum } from "lucide-react";
 
 const bandMembers = [
   {
@@ -50,7 +50,7 @@ const bandMembers = [
     name: "Lohit Raj",
     role: "Drums Player",
     instrument: "Drums",
-    icon: Drums,
+    icon: Drum,
     color: "accent",
     image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
     description: "Lohit is a dynamic and skilled drummer, known for his powerful rhythms and versatility across various music genres."
