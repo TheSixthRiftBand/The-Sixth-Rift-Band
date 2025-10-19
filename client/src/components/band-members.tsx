@@ -47,6 +47,15 @@ const bandMembers = [
     description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
   },
   {
+    name: "Aryan Pawar",
+    role: "Tabla Player",
+    instrument: "Tabla",
+    icon: Music,
+    color: "accent",
+    image: "https://instrurentals.in/wp-content/uploads/2019/01/1.jpg",
+    description: "Aryan bridges ancient rhythms with cosmic beats, creating the heartbeat of our song."
+  },
+  {
     name: "Lohit Raj",
     role: "Drums Player",
     instrument: "Drums",
