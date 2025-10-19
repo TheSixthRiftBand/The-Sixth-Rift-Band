@@ -7,7 +7,7 @@ const bandMembers = [
     instrument: "Guitar",
     icon: Guitar,
     color: "primary",
-    image: "https://unsplash.com/photos/person-playing-guitar-2UuhMZEChdc",
+    image: "/client/src/components/guitar 2.jpeg",
     description: "Master of melodies, Vishwajit creates the sonic landscapes that define our dimensional sound."
   },
   {
@@ -34,7 +34,7 @@ const bandMembers = [
     instrument: "Keyboards",
     icon: Piano,
     color: "primary",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    image: "/client/src/components/keyboard.jpeg",
     description: "Kanishka weaves digital harmonies that open portals to new musical dimensions with every key press."
   },
   {
@@ -43,7 +43,7 @@ const bandMembers = [
     instrument: "Tabla",
     icon: Music,
     color: "accent",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    image: "/client/src/components/tabla.jpeg",
     description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
   },
   {
@@ -52,7 +52,7 @@ const bandMembers = [
     instrument: "Drums",
     icon: Drum,
     color: "accent",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    image: "/client/src/components/drummer.jpeg",
     description: "Lohit is a dynamic and skilled drummer, known for his powerful rhythms and versatility across various music genres."
   },
   {
@@ -61,7 +61,7 @@ const bandMembers = [
     instrument: "Guitar",
     icon: Guitar,
     color: "accent",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    image: "/client/src/components/guitar 1.jpeg",
     description: "Vivasvan is our second guitarist, and he breaks the sound barrier while playing guitar."
   }
 ];
