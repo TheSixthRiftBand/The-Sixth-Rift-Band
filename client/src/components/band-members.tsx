@@ -7,7 +7,7 @@ const bandMembers = [
     instrument: "Guitar",
     icon: Guitar,
     color: "primary",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    image: "https://unsplash.com/photos/person-playing-guitar-2UuhMZEChdc",
     description: "Master of melodies, Vishwajit creates the sonic landscapes that define our dimensional sound."
   },
   {
