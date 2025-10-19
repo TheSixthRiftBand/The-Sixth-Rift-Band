@@ -7,7 +7,7 @@ const bandMembers = [
     instrument: "Guitar",
     icon: Guitar,
     color: "primary",
-    image: "/client/src/components/guitar 2.jpeg",
+    image: "https://plus.unsplash.com/premium_photo-1693169973609-342539dea9dc?ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;fm=jpg&amp;q=60&amp;w=3000",
     description: "Master of melodies, Vishwajit creates the sonic landscapes that define our dimensional sound."
   },
   {
@@ -25,7 +25,7 @@ const bandMembers = [
     instrument: "Vocals",
     icon: MicVocal,
     color: "secondary",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=jpg&q=60&w=3000",
     description: "Rachit's powerful vocals anchor our cosmic journey, bringing depth and emotion to every track."
   },
   {
@@ -34,7 +34,7 @@ const bandMembers = [
     instrument: "Keyboards",
     icon: Piano,
     color: "primary",
-    image: "/client/src/components/keyboard.jpeg",
+    image: "https://plus.unsplash.com/premium_photo-1681396935059-aeda1a03b451?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=jpg&q=60&w=3000",
     description: "Kanishka weaves digital harmonies that open portals to new musical dimensions with every key press."
   },
   {
@@ -43,7 +43,7 @@ const bandMembers = [
     instrument: "Tabla",
     icon: Music,
     color: "accent",
-    image: "/client/src/components/tabla.jpeg",
+    image: "https://serenademagazine.com/content/images/size/w1200/wp-content/uploads/2023/03/3484668783_b69359235a_o.jpg",
     description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
   },
   {
@@ -52,7 +52,7 @@ const bandMembers = [
     instrument: "Drums",
     icon: Drum,
     color: "accent",
-    image: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-drum-icon lucide-drum"><path d="m2 2 8 8"/><path d="m22 2-8 8"/><ellipse cx="12" cy="9" rx="10" ry="5"/><path d="M7 13.4v7.9"/><path d="M12 14v8"/><path d="M17 13.4v7.9"/><path d="M2 9v8a10 5 0 0 0 20 0V9"/></svg>,
+    image: "https://images.unsplash.com/photo-1588032786045-59cefda005c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=jpg&q=60&w=3000",
     description: "Lohit is a dynamic and skilled drummer, known for his powerful rhythms and versatility across various music genres."
   },
   {
@@ -61,7 +61,7 @@ const bandMembers = [
     instrument: "Guitar",
     icon: Guitar,
     color: "accent",
-    image: "/client/src/components/guitar 1.jpeg",
+    image: "https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=100 100w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=200 200w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=300 300w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=400 400w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500 500w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600 600w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=700 700w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=800 800w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=900 900w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1000 1000w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1200 1200w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400 1400w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1600 1600w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1800 1800w, https://images.unsplash.com/photo-1471478331149-c72f17e33c73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwcGxheWVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=2000 2000w",
     description: "Vivasvan is our second guitarist, and he breaks the sound barrier while playing guitar."
   }
 ];
