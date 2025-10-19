@@ -48,7 +48,7 @@ const bandMembers = [
   },
   {
     name: "Aryan Pawar",
-    role: "Tabla Player",
+    role: "2nd Tabla Player",
     instrument: "Tabla",
     icon: Music,
     color: "accent",
@@ -66,7 +66,7 @@ const bandMembers = [
   },
   {
     name: "Vivasvan Verma",
-    role: "Guitar Player 2",
+    role: "2nd Guitarist",
     instrument: "Guitar",
     icon: Guitar,
     color: "accent",
