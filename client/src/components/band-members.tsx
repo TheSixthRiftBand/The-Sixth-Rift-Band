@@ -8,7 +8,7 @@ const bandMembers = [
     icon: Guitar,
     color: "primary",
     image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
-    description: "Master of electric melodies, Vishwajit creates the sonic landscapes that define our dimensional sound."
+    description: "Master of melodies, Vishwajit creates the sonic landscapes that define our dimensional sound."
   },
   {
     name: "Shraddha Sheri",
@@ -53,7 +53,7 @@ const bandMembers = [
     icon: Drums,
     color: "accent",
     image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
-    description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
+    description: "Lohit is a dynamic and skilled drummer, known for his powerful rhythms and versatility across various music genres."
   },
   {
     name: "Vivasvan Verma",
@@ -62,7 +62,7 @@ const bandMembers = [
     icon: Guitar,
     color: "accent",
     image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
-    description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
+    description: "Vivasvan is our second guitarist, and he breaks the sound barrier while playing guitar."
   }
 ];
 
