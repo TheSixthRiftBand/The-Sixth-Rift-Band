@@ -3,16 +3,16 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const achievements = [
   { label: "Songs Released", value: "1" },
-  { label: "Average Age", value: "12" },
+  { label: "Average Age", value: "13" },
   { label: "Months Creating", value: "6" },
-  { label: "Songs in Works", value: "3" }
+  { label: "Songs in Works", value: "2" }
 ];
 
 const highlights = [
   {
     icon: Star,
     title: "Young Prodigies",
-    description: "At just 12 years old, each member of The Sixth Rift brings exceptional talent and passion. We believe age is just a number when it comes to creating meaningful music.",
+    description: "At just average of 13 years old, each member of The Sixth Rift brings exceptional talent and passion. We believe age is just a number when it comes to creating meaningful music.",
     color: "primary"
   },
   {
