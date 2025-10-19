@@ -46,6 +46,24 @@ const bandMembers = [
     image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
     description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
   }
+  {
+    name: "Lohit Raj",
+    role: "Drums Player",
+    instrument: "Drums",
+    icon: Drums,
+    color: "accent",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
+  }
+{
+    name: "Vivasvan Verma",
+    role: "Guitar Player 2",
+    instrument: "Guitar",
+    icon: Guitar,
+    color: "accent",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200",
+    description: "Arav bridges ancient rhythms with cosmic beats, creating the heartbeat of our dimensional sound."
+  }
 ];
 
 export default function BandMembers() {
