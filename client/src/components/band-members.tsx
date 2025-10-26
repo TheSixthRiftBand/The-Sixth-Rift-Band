@@ -34,7 +34,7 @@ const bandMembers = [
     instrument: "Keyboards",
     icon: Piano,
     color: "primary",
-    image: "https://plus.unsplash.com/premium_photo-1681396935059-aeda1a03b451?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=jpg&q=60&w=3000",
+    image: "https://i.pinimg.com/236x/b0/f3/52/b0f3529bfdf9ed5417ce296b04d3de18.jpg",
     description: "Kanishka weaves digital harmonies that open portals to new musical dimensions with every key press."
   },
   {
