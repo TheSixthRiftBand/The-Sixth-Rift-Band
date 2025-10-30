@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Pause, Volume2, VolumeX, Clock, Music, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useAudioPlayer } from "react-use-audio-player";
+
 
 const tracks = [
   {
@@ -17,6 +19,18 @@ const tracks = [
     // ✅ Updated to point to uploaded MP3
     audioUrl: "/clients/The Monsoon Nights.mp3",
   },
+  {
+    function PlayButton() {
+    const { togglePlayPause, isPlaying } = useAudioPlayer("/The Monsoon Nights.mp3", {
+        autoplay: false
+    })
+
+    return (
+        <button onClick={togglePlayPause}>
+            {isPlaying ? "Pause" : "Play"}
+        </button>
+    )
+   }
 ];
 
 const upcomingTracks = [
