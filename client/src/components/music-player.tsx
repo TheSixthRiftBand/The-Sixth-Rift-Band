@@ -17,20 +17,8 @@ const tracks = [
     duration: "3:13",
     status: "released",
     // ✅ Updated to point to uploaded MP3
-    audioUrl: "/clients/The Monsoon Nights.mp3",
-  },
-  {
-    function: PlayButton() {
-    const { togglePlayPause, isPlaying } = useAudioPlayer("/The Monsoon Nights.mp3", {
-        autoplay: true
-    })
-
-    return (
-        <button onClick={togglePlayPause}>
-            {isPlaying ? "Pause" : "Play"}
-        </button>
-    )
-   }
+    audio: "/The Monsoon Nights.mp3",
+  }
 ];
 
 const upcomingTracks = [
