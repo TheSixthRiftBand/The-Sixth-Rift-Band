@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const achievements = [
   { label: "Songs Released", value: "1" },
-  { label: "Average Age", value: "13" },
+  { label: "Average Age", value: "12" },
   { label: "Months Creating", value: "6" },
   { label: "Songs in Works", value: "2" }
 ];
