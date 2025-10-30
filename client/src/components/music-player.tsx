@@ -20,9 +20,9 @@ const tracks = [
     audioUrl: "/clients/The Monsoon Nights.mp3",
   },
   {
-    function PlayButton() {
+    function: PlayButton() {
     const { togglePlayPause, isPlaying } = useAudioPlayer("/The Monsoon Nights.mp3", {
-        autoplay: false
+        autoplay: true
     })
 
     return (
