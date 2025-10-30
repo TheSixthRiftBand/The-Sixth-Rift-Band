@@ -25,7 +25,7 @@ const bandMembers = [
     instrument: "Vocals",
     icon: MicVocal,
     color: "secondary",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=jpg&q=60&w=3000",
+    image: "https://www.thejazzpianosite.com/wp-content/uploads/2018/11/israel-palacio-459693-unsplash-300x200.jpg",
     description: "Rachit's powerful vocals anchor our cosmic journey, bringing depth and emotion to every track."
   },
   {
