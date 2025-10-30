@@ -23,32 +23,36 @@ const tracks = [
 
 const upcomingTracks = [
   {
-    title: "Cosmic Dreams",
+    title: "----",
     status: "Coming Soon",
     image:
       "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
     icon: Play,
+    Url: "/",
   },
   {
-    title: "Digital Rifts",
+    title: "----",
     status: "In Production",
     image:
       "https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
     icon: Clock,
+    Url: "/",
   },
   {
-    title: "Tabla Fusion",
+    title: "----",
     status: "Demo Stage",
     image:
       "https://images.unsplash.com/photo-1504198458649-3128b932f49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
     icon: Music,
+    Url: "/",
   },
   {
-    title: "Ethereal Voices",
+    title: "----",
     status: "Concept Phase",
     image:
       "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
     icon: Lightbulb,
+    Url: "/",
   },
 ];
 
