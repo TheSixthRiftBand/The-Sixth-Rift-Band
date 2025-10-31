@@ -15,7 +15,7 @@ const tracks = [
       "A mystical journey through rain-soaked dimensions, where ancient tabla rhythms meet cosmic synthesizers and ethereal vocals paint pictures of interdimensional storms.",
     image:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    duration: "3:47",
+    duration: "3:13",
     status: "released",
     audioUrl: "/The_Monsoon_Nights.mp3",
   },
