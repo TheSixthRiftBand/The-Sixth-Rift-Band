@@ -16,7 +16,7 @@ const tracks = [
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     duration: "3:47",
     status: "released",
-    audioUrl: "/attached_assets/The Monsoon Nights.mp3",
+    audioUrl: "/attached_assets/The Monsoon Nights_1761888739839.mp3",
   },
 ];
 
@@ -116,19 +116,36 @@ export default function MusicPlayer() {
     const audio = audioRef.current;
     if (audio) {
       const updateTime = () => setCurrentTime(audio.currentTime);
-      const updateDuration = () => setDuration(audio.duration);
+      const updateDuration = () => {
+        if (audio.duration && !isNaN(audio.duration)) {
+          setDuration(audio.duration);
+        }
+      };
       const handleEnded = () => setIsPlaying(false);
+      const handleCanPlay = () => {
+        if (audio.duration && !isNaN(audio.duration)) {
+          setDuration(audio.duration);
+        }
+      };
 
       audio.addEventListener("timeupdate", updateTime);
       audio.addEventListener("loadedmetadata", updateDuration);
+      audio.addEventListener("canplay", handleCanPlay);
+      audio.addEventListener("durationchange", updateDuration);
       audio.addEventListener("ended", handleEnded);
       
       // Set initial volume
       audio.volume = volume / 100;
+      
+      // Prevent autoplay - ensure audio is paused on mount
+      audio.pause();
+      setIsPlaying(false);
 
       return () => {
         audio.removeEventListener("timeupdate", updateTime);
         audio.removeEventListener("loadedmetadata", updateDuration);
+        audio.removeEventListener("canplay", handleCanPlay);
+        audio.removeEventListener("durationchange", updateDuration);
         audio.removeEventListener("ended", handleEnded);
       };
     }
@@ -239,7 +256,7 @@ export default function MusicPlayer() {
                   <audio
                     ref={audioRef}
                     src={tracks[0].audioUrl}
-                    preload="metadata"
+                    preload="auto"
                   />
                 </CardContent>
               </Card>
