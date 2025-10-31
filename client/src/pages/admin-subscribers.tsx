@@ -4,39 +4,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { useLocation } from "wouter";
 
 export default function AdminSubscribers() {
   const { toast } = useToast();
-  const [, setLocation] = useLocation();
   const [emailSubject, setEmailSubject] = useState("");
   const [emailContent, setEmailContent] = useState("");
-
-  useEffect(() => {
-    const auth = sessionStorage.getItem("adminAuth");
-    if (!auth) {
-      setLocation("/admin/login");
-    }
-  }, [setLocation]);
 
   const { data: subscribers, isLoading } = useQuery({
     queryKey: ["subscribers"],
     queryFn: async () => {
-      const auth = sessionStorage.getItem("adminAuth");
-      if (!auth) {
-        throw new Error("Not authenticated");
-      }
-      const res = await fetch("/api/subscribers", {
-        headers: {
-          Authorization: `Basic ${auth}`,
-        },
-      });
+      const res = await fetch("/api/subscribers");
       if (!res.ok) {
-        sessionStorage.removeItem("adminAuth");
-        setLocation("/admin/login");
-        throw new Error("Authentication failed");
+        throw new Error("Failed to fetch subscribers");
       }
       return await res.json();
     },
@@ -95,23 +76,10 @@ export default function AdminSubscribers() {
   return (
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
+        <div className="mb-8">
           <h1 className="text-4xl font-bold gradient-text">
             Subscriber Management
           </h1>
-          <Button
-            onClick={() => {
-              sessionStorage.removeItem("adminAuth");
-              setLocation("/admin/login");
-              toast({
-                title: "Logged out",
-                description: "You have been logged out successfully",
-              });
-            }}
-            variant="outline"
-          >
-            Logout
-          </Button>
         </div>
 
         {/* Subscribers List */}
