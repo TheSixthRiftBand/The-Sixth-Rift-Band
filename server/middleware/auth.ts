@@ -19,18 +19,15 @@ export function requireAdminAuth(req: Request, res: Response, next: NextFunction
   const adminUsername = process.env.ADMIN_USERNAME || 'admin';
   const adminPassword = process.env.ADMIN_PASSWORD || 'changeme123';
 
-  // Trim whitespace from credentials
-  const trimmedUsername = username?.trim();
-  const trimmedPassword = password?.trim();
-
-  console.log('Auth attempt:', { 
-    receivedUsername: trimmedUsername,
-    expectedUsername: adminUsername,
-    usernameMatch: trimmedUsername === adminUsername,
-    hasPassword: !!trimmedPassword
+  // Log for debugging (remove in production)
+  console.log('Auth attempt - Expected username:', adminUsername);
+  console.log('Auth attempt - Received username:', username);
+  console.log('Environment variables set:', {
+    hasUsername: !!process.env.ADMIN_USERNAME,
+    hasPassword: !!process.env.ADMIN_PASSWORD
   });
 
-  if (trimmedUsername === adminUsername && trimmedPassword === adminPassword) {
+  if (username === adminUsername && password === adminPassword) {
     next();
   } else {
     res.setHeader('WWW-Authenticate', 'Basic realm="Admin Area"');
