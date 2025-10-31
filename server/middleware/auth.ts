@@ -16,8 +16,8 @@ export function requireAdminAuth(req: Request, res: Response, next: NextFunction
   const [username, password] = credentials.split(':');
 
   // Use environment variables for admin credentials
-  const adminUsername = process.env.ADMIN_USERNAME || 'admin';
-  const adminPassword = process.env.ADMIN_PASSWORD || 'changeme123';
+  const adminUsername = process.env.ADMIN_USERNAME || 'Vishu';
+  const adminPassword = process.env.ADMIN_PASSWORD || 'Vishwa@261212';
 
   if (username === adminUsername && password === adminPassword) {
     next();
