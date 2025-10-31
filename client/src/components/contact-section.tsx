@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 
 const socialPlatforms = [
   {
@@ -37,31 +39,46 @@ const socialPlatforms = [
 
 export default function ContactSection() {
   const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const subscribeMutation = useMutation({
+    mutationFn: async (email: string) => {
+      const res = await apiRequest("POST", "/api/subscribe", { email });
+      return await res.json();
+    },
+    onSuccess: (data: any) => {
+      toast({
+        title: "Thank you for subscribing!",
+        description: data.message || "You'll be notified about our latest releases.",
+      });
+      setEmail("");
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Subscription failed",
+        description: error.message || "Please try again later.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      toast({
-        title: "Thank you for subscribing!",
-        description: "You'll be notified about our latest releases.",
-      });
-      setEmail("");
-      setIsSubmitting(false);
-    }, 1000);
+    if (email) {
+      subscribeMutation.mutate(email);
+    }
   };
 
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">Connect With Us</h2>
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+            Connect With Us
+          </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Join our cosmic journey and stay updated with our latest dimensional creations
+            Join our cosmic journey and stay updated with our latest dimensional
+            creations
           </p>
         </div>
 
@@ -74,13 +91,23 @@ export default function ContactSection() {
               className="bg-card rounded-xl p-6 border border-border card-hover text-center group"
               data-testid={`social-link-${platform.name.toLowerCase()}`}
             >
-              <div className={`w-16 h-16 mx-auto mb-4 bg-${platform.color}/20 rounded-full flex items-center justify-center group-hover:bg-${platform.color}/30 transition-colors`}>
-                <i className={`${platform.icon} text-${platform.color} text-2xl`}></i>
+              <div
+                className={`w-16 h-16 mx-auto mb-4 bg-${platform.color}/20 rounded-full flex items-center justify-center group-hover:bg-${platform.color}/30 transition-colors`}
+              >
+                <i
+                  className={`${platform.icon} text-${platform.color} text-2xl`}
+                ></i>
               </div>
-              <h3 className="font-semibold text-foreground" data-testid={`social-name-${platform.name.toLowerCase()}`}>
+              <h3
+                className="font-semibold text-foreground"
+                data-testid={`social-name-${platform.name.toLowerCase()}`}
+              >
                 {platform.name}
               </h3>
-              <p className="text-sm text-muted-foreground" data-testid={`social-description-${platform.name.toLowerCase()}`}>
+              <p
+                className="text-sm text-muted-foreground"
+                data-testid={`social-description-${platform.name.toLowerCase()}`}
+              >
                 {platform.description}
               </p>
             </a>
@@ -90,11 +117,17 @@ export default function ContactSection() {
         {/* Newsletter Signup */}
         <Card className="bg-card border border-border">
           <CardContent className="p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Stay in the Loop</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Stay in the Loop
+            </h3>
             <p className="text-muted-foreground mb-6">
-              Get notified when we release new music or announce upcoming performances
+              Get notified when we release new music or announce upcoming
+              performances
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form
+              onSubmit={handleNewsletterSubmit}
+              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+            >
               <Input
                 type="email"
                 placeholder="Enter your email"
@@ -106,11 +139,11 @@ export default function ContactSection() {
               />
               <Button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={subscribeMutation.isPending}
                 className="bg-primary text-primary-foreground px-6 py-3 font-medium hover:bg-primary/90 transition-colors"
                 data-testid="newsletter-submit"
               >
-                {isSubmitting ? "Subscribing..." : "Subscribe"}
+                {subscribeMutation.isPending ? "Subscribing..." : "Subscribe"}
               </Button>
             </form>
           </CardContent>
@@ -118,7 +151,9 @@ export default function ContactSection() {
 
         {/* Contact Info */}
         <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-4">For collaboration or bookings:</p>
+          <p className="text-muted-foreground mb-4">
+            For collaboration or bookings:
+          </p>
           <a
             href="mailto:thesixthrift@example.com"
             className="text-primary hover:text-primary/80 transition-colors font-medium"
