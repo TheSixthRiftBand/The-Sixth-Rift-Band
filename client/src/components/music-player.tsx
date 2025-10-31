@@ -17,7 +17,7 @@ const tracks = [
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     duration: "3:47",
     status: "released",
-    audioUrl: "/client/public/The_Monsoon_Nights.mp3",
+    audioUrl: "/The_Monsoon_Nights.mp3",
   },
 ];
 
