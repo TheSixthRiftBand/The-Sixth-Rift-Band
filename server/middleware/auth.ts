@@ -16,13 +16,27 @@ export function requireAdminAuth(req: Request, res: Response, next: NextFunction
   const [username, password] = credentials.split(':');
 
   // Use environment variables for admin credentials
-  const adminUsername = process.env.ADMIN_USERNAME || 'Vishu';
-  const adminPassword = process.env.ADMIN_PASSWORD || 'Vishwa@261212';
+  const adminUsername = process.env.ADMIN_USERNAME || 'admin';
+  const adminPassword = process.env.ADMIN_PASSWORD || 'changeme123';
 
-  if (username === adminUsername && password === adminPassword) {
+  // Trim whitespace from credentials
+  const trimmedUsername = username?.trim();
+  const trimmedPassword = password?.trim();
+
+  console.log('Auth attempt:', { 
+    receivedUsername: trimmedUsername,
+    expectedUsername: adminUsername,
+    usernameMatch: trimmedUsername === adminUsername,
+    hasPassword: !!trimmedPassword
+  });
+
+  if (trimmedUsername === adminUsername && trimmedPassword === adminPassword) {
     next();
   } else {
     res.setHeader('WWW-Authenticate', 'Basic realm="Admin Area"');
-    return res.status(401).json({ message: 'Invalid credentials' });
+    return res.status(401).json({ 
+      message: 'Invalid credentials',
+      hint: 'Using default credentials: admin / changeme123'
+    });
   }
 }
