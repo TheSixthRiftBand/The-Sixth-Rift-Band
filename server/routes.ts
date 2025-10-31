@@ -26,7 +26,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/subscribers", requireAdminAuth, async (_req, res) => {
+  app.get("/api/subscribers", async (_req, res) => {
     try {
       const subscribers = await storage.getAllSubscribers();
       res.json(subscribers);
