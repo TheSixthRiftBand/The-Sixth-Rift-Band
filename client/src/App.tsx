@@ -1,10 +1,12 @@
-import { Switch, Route } from "wouter";
+import { Route, Switch } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import TrackDetail from "@/pages/track-detail";
+import AdminLogin from "@/pages/admin-login";
+import AdminSubscribers from "@/pages/admin-subscribers";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -12,6 +14,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/track/:slug" component={TrackDetail} />
+      <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/admin/subscribers" component={AdminSubscribers} />
       <Route component={NotFound} />
     </Switch>
   );
