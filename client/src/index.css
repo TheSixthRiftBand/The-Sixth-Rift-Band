@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --background: hsl(35, 20%, 12%);
   --foreground: hsl(45, 30%, 95%);
@@ -131,5 +130,18 @@
       transform: scale(2.4);
       opacity: 0;
     }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
   }
 }
