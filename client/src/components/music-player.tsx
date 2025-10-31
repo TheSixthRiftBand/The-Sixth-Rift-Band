@@ -5,6 +5,7 @@ import { Play, Pause, Clock, Music, SkipForward, Repeat, Shuffle } from "lucide-
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { The_Monsoon_Nights.mp3 } from "@attached_assets"
 
 const tracks = [
   {
